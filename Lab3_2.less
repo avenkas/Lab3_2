@@ -1,0 +1,413 @@
+// Змінні кольорів
+@background: #222933; // Темний фон для сайту
+@card-bg: #2c3545; // Темно-синій для блоків
+@primary: #ffffff; // Білий для тексту
+@accent: #b9a4dd; // Синій для акцентів
+@hover-accent: #b9a4dd; // Світліший синій для hover
+@dropdown-bg: #2c3545; // Темний фон для випадаючого меню
+@shadow: rgba(0, 0, 0, 0.5); // Тінь для елементів
+@hover-shadow: rgba(0, 0, 0, 0.7); // Глибока тінь для наведених елементів
+
+// Основний стиль для тіла сайту
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: @background;
+  color: @primary;
+}
+
+// Шапка сайту
+.header {
+  text-align: center; // Вирівнювання тексту в центрі
+  background: @card-bg; // Темно-синій фон для шапки
+  color: @primary; // Білий текст
+  padding: 20px; // Внутрішні відступи
+  border-radius: 15px; // Закруглені кути
+  box-shadow: 0 4px 10px @shadow; // Тінь для візуального ефекту
+
+  .menu {
+    display: flex; // Використовує flexbox для розташування меню в один рядок
+    justify-content: center; // Центрування елементів у меню
+    gap: 15px; // Відстань між елементами меню
+
+    li {
+      border: 3px solid @accent; // Зроблено рамку ширшою (3px)
+      background: lighten(@card-bg, 5%); // Світліший фон для кнопок
+      border-radius: 10px; // Додано закруглення кута рамки
+      padding: 10px 20px; // Додано більше простору всередині рамки
+      transition: all 0.3s ease; // Плавні зміни стилів при взаємодії
+
+      &:hover {
+        background: @hover-accent; // Зміна кольору фону при наведенні
+        border-color: @hover-shadow; // Зміна кольору рамки при наведенні
+        transform: scale(1.05); // Легке збільшення розміру кнопки при наведенні
+      }
+
+      a {
+        text-decoration: none; // Прибирає стандартне підкреслення посилань
+        color: @primary; // Колір тексту
+        font-size: 1em; // Розмір шрифту
+        font-weight: bold; // Жирний текст
+        display: inline-block; // Блочний елемент
+        transition: all 0.3s ease; // Плавність зміни стилів тексту
+
+        &:hover {
+          color: @background; // Змінює колір тексту при наведенні
+        }
+      }
+    }
+  }
+}
+
+
+  // Адаптація розміру тексту для середніх екранів
+  @media (max-width: 1200px) {
+    padding: 15px;
+
+    .container-header {
+      h1 {
+        font-size: 2em; // Зменшення заголовка
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 1em; // Менший опис
+      }
+    }
+  }
+
+  // Адаптація тексту для малих екранів
+  @media (max-width: 768px) {
+    padding: 10px;
+
+    .container-header {
+      h1 {
+        font-size: 1.8em; // Компактний заголовок
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 0.9em; // Менший текст
+      }
+    }
+  }
+
+  // Додаткова адаптація для дуже малих пристроїв
+  @media (max-width: 480px) {
+    padding: 8px;
+
+    .container-header {
+      h1 {
+        font-size: 1.5em; // Ще менший заголовок
+      }
+
+      p {
+        font-size: 0.8em; // Оптимальний текст для вузьких екранів
+      }
+    }
+  }
+
+
+// Гнучкі кнопки
+.container-header .buttons {
+  display: flex;
+  flex-wrap: wrap; // Розташування кнопок
+  justify-content: center; // Центрування
+  gap: 10px; // Відстань між кнопками
+
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: @primary;
+    background: @accent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: @hover-accent;
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    button {
+      font-size: 0.9em; // Зменшення кнопок
+      padding: 8px 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    button {
+      font-size: 0.8em; // Компактні кнопки
+      padding: 6px 10px;
+    }
+  }
+}
+  
+// Меню навігації
+.navbar {
+  margin-top: 20px;
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    li {
+      position: relative;
+      border: 2px solid @accent;
+      background: lighten(@card-bg, 5%);
+      border-radius: 8px;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: @hover-accent;
+        border-color: @hover-shadow;
+        transform: scale(1.05);
+      }
+
+      a {
+        text-decoration: none;
+        color: @primary;
+        font-size: 1em;
+        font-weight: bold;
+        display: inline-block;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: @background;
+        }
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: @dropdown-bg;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+
+        border-radius: 8px;
+        box-shadow: 0 4px 8px @shadow;
+        width: 100%;
+
+        li {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: @primary;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: @hover-accent;
+              color: @background;
+            }
+          }
+        }
+      }
+
+      &:hover .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+
+   // Адаптація для мобільних пристроїв
+   @media (max-width: 768px) {
+    .menu {
+      flex-direction: column; // Вертикальне розташування меню
+      gap: 10px;
+
+      li {
+        width: 90%; // Кнопки займають 80% ширини екрану
+        margin: 0 auto; // Центрування
+        padding: 6px 8px;
+
+        .dropdown-menu {
+          position: static; // У загальному потоці
+          width: 100%; // Займає ширину батьківського контейнера
+          box-shadow: none; // Прибираємо додаткові тіні
+
+          li {
+            a {
+              font-size: 0.8em; // Компактний текст для мобільних
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .menu {
+      gap: 8px;
+
+      li {
+        padding: 5px 6px;
+
+        .dropdown-menu {
+          li {
+            a {
+              font-size: 0.75em; // Ще компактніший текст
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  
+  // Макет сторінки
+.layout {
+    display: grid;
+    grid-template-columns: 20% 58% 20%; // Ліва колонка, центральна, права
+    gap: 20px;
+    padding: 20px;
+  
+    .left-column, .hot-tours, .right-column {
+      background: @card-bg;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px @shadow;
+      transition: all 0.3s ease;
+  
+      overflow-wrap: break-word; // Перенос тексту по словам
+      white-space: normal;
+  
+      &:hover {
+        box-shadow: 0 8px 16px @hover-shadow;
+        transform: translateY(-5px);
+      }
+  
+      h2 {
+        color: @accent;
+        margin-bottom: 10px;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          margin-bottom: 12px;
+          padding: 10px;
+          border-radius: 8px;
+          background: lighten(@card-bg, 5%);
+          transition: all 0.3s ease;
+  
+          overflow-wrap: break-word;
+          white-space: normal;
+  
+          &:hover {
+            background: @hover-accent;
+            color: @primary;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  
+    .tour {
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid @shadow;
+      background: lighten(@card-bg, 5%);
+      padding: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+  
+      overflow-wrap: break-word;
+      white-space: normal;
+  
+      &:hover {
+        background: @hover-accent;
+        color: @primary;
+        transform: translateY(-5px);
+        img {
+          transform: scale(1.1);
+        }
+      }
+  
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+      }
+  
+      h3 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+        color: @primary;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+  
+      p {
+        font-size: 0.9em;
+        margin: 0;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+    }
+  }
+  
+  // Футер сайту
+  .footer {
+    text-align: center;
+    background: @card-bg;
+    color: @primary;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 -4px 10px @shadow;
+  
+    p {
+      font-size: 0.9em;
+      margin: 0;
+    }
+  }
+  
+  
+// Адаптація для середнього екрану
+@media (max-width: 1200px) {
+    .layout {
+      grid-template-columns: 1fr 1fr; // Ліва і центральна поруч
+      grid-template-rows: auto auto; // Права колонка знизу
+      gap: 20px;
+    }
+  
+    .right-column {
+      grid-column: 1 / span 2; // Права колонка займає всю ширину
+    }
+  }
+  
+  // Адаптація для малих екранів
+  @media (max-width: 768px) {
+    .layout {
+      grid-template-columns: 1fr; // Кожен блок розташовується окремо
+    }
+  
+    .left-column, .hot-tours, .right-column {
+      grid-column: 1; // Кожна колонка займає всю ширину
+    }
+  }

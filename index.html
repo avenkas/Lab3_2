@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подорожі по світу</title>
+    <!-- Підключення стилів LESS -->
+    <link rel="stylesheet/less" type="text/css" href="Lab3_2.less">
+    <script src="https://cdn.jsdelivr.net/npm/less@4.1.3"></script>
+</head>
+<body>
+    <!-- Шапка сторінки -->
+    <header class="header">
+        <div class="container-header">
+            <h1>Подорожуй з нами!</h1>
+            <p>Досліджуйте найкращі місця України, Європи та Азії!</p>
+            <!-- Меню навігації -->
+            <nav class="navbar">
+                <ul class="menu">
+                    <li class="dropdown">
+                        <a href="#countries">Країни для подорожі</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ukraine">Україна</a></li>
+                            <li><a href="#europe">Європа</a></li>
+                            <li><a href="#asia">Азія</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#booking">Бронювання</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#hotels">Готелі</a></li>
+                            <li><a href="#flights">Авіарейси</a></li>
+                            <li><a href="#tours">Тури</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#tours">Гарячі тури</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основний вміст -->
+    <main class="layout">
+        <!-- Ліва колонка -->
+        <aside class="left-column">
+            <h2>Новини подорожей</h2>
+            <ul>
+                <li><strong>Гаага модернізує інфраструктуру</strong>: нові маршрути, музеї та парки.</li>
+                <li><strong>Еко-туризм</strong>: топ-зелені напрямки 2025 року.</li>
+                <li><strong>Секрети успішного планування</strong>: як заощадити на відпустці.</li>
+                <li><strong>Toyota в Японії</strong>: музей для автошанувальників.</li>
+            </ul>
+        </aside>
+
+        <!-- Центр: Гарячі тури -->
+        <section class="hot-tours" id="tours">
+            <h2>Гарячі тури</h2>
+            <div class="tour">
+                <img src="hague.jpg" alt="Гаага" class="tour-image">
+                <h3>Гаага, Нідерланди</h3>
+                <p>5 днів за 500$. Відвідайте узбережжя та історичні місця!</p>
+            </div>
+            <div class="tour">
+                <img src="paris.jpg" alt="Париж" class="tour-image">
+                <h3>Париж, Франція</h3>
+                <p>3 дні за 450$. У програмі авіапереліт та готель!</p>
+            </div>
+            <div class="tour">
+                <img src="seoul.jpg" alt="Сеул" class="tour-image">
+                <h3>Сеул, Південна Корея</h3>
+                <p>7 днів за 1200$. Відкрийте сучасний мегаполіс із гідом!</p>
+            </div>
+            <div class="tour">
+                <img src="alicante.jpg" alt="Аліканте" class="tour-image">
+                <h3>Аліканте, Іспанія</h3>
+                <p>5 днів за 700$. Середземноморська кухня, теплі пляжі!</p>
+            </div>
+        </section>
+
+        <!-- Права колонка -->
+        <aside class="right-column">
+            <h2>Поради для подорожей</h2>
+            <ul>
+                <li><strong>Зручне взуття</strong>: ідеальне для екскурсій.</li>
+                <li><strong>Документи</strong>: завжди майте копії паспорта.</li>
+                <li><strong>Місцева культура</strong>: дізнайтеся про традиції країни перед подорожжю.</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <p>© 2025 Подорожі по світу. Всі права захищені.</p>
+    </footer>
+</body>
+</html>
